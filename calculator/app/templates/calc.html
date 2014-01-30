@@ -1,0 +1,7 @@
+<script type="text/javascript">
+	function getUrl(expression){
+		window.location = "#calc/" + encodeURIComponent(expression);
+	}
+</script>
+<input ng-model="expression"/>
+<a href="#/calc/{{expression | encodeURIComponent}}">PRESS TO EVALUATE</a>
