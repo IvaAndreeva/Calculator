@@ -3,6 +3,7 @@ var calcControllers = angular.module('calcControllers', []);
 calcControllers.controller('CalcController', ['$scope', '$routeParams', 'Calc', 
 	function($scope, $routeParams, Calc) {
 		var expression = decodeURIComponent($routeParams.expression);
+		expression = expression.replace(/div/g,'/');
 		$scope.expression = expression;
 
 		while (expression.indexOf("{")!=-1){

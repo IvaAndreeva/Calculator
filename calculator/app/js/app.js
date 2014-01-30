@@ -5,7 +5,13 @@ var calcApp = angular.module('calcApp', [
 ]);
 
 calcApp.filter('encodeURIComponent', function() {
-    return window.encodeURIComponent;
+	return function (expression){	
+		if (typeof expression != 'undefined'){
+			var replacedDivision = expression.replace(/\//g,'div');
+			return window.encodeURIComponent(replacedDivision);
+		}
+		return window.encodeURIComponent;
+	}
 });
 
 calcApp.config(['$routeProvider', 
